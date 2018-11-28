@@ -1,4 +1,4 @@
-package com.kafka.producer;
+/*package com.kafka.producer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,11 +11,45 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAutoConfiguration
 @ComponentScan(basePackages = { "com.kafka.producer" })
 @EnableAspectJAutoProxy(proxyTargetClass = true)
-public class SimpleStringProducer {
+public class SimpleStringProducer  {
 	public static void main(String[] args) {
 		SpringApplication.run(SimpleStringProducer.class, args);
 	}
 }
+*/
+
+package com.kafka.producer;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+
+
+
+@SpringBootApplication
+@EnableAutoConfiguration
+@ComponentScan(basePackages = { "com.kafka.producer" })
+@EnableAspectJAutoProxy(proxyTargetClass = true)
+public class SimpleStringProducer extends SpringBootServletInitializer {
+	public static void main(String[] args) {
+		SpringApplication.run(SimpleStringProducer.class, args);
+	}
+	
+	/**
+	 * Used when run as WAR
+	 */
+	@Override
+	protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
+	    return builder.sources(SimpleStringProducer.class);
+	}
+}
+
+
+
+
 
 
 //package com.kafka.producer;
