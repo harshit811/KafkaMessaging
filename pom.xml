@@ -149,7 +149,8 @@
 		</plugins>
 	</build> -->
 	 <build>
-	 <finalName>KafkaMessaging</finalName>
+		 <finalName>system4</finalName>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
